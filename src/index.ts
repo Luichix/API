@@ -1,18 +1,62 @@
-import express from 'express';
-import diaryRouter from './routes/diaries';
+import { createServer } from 'http'
+import { ApolloServer } from 'apollo-server-express'
+import app from './app'
+import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+import { WebSocketServer } from 'ws'
+import { useServer } from 'graphql-ws/lib/use/ws'
+import { typeDefs } from './schema/typeDefs'
+import {
+  resolvers
+//   pubsub
+} from './schema/resolvers'
+import config from './utils/config'
+import logger from './utils/logger'
 
-const app = express();
-app.use( express.json())
+const startApolloServer = async (): Promise<any> => {
+  const httpServer = createServer(app)
 
-const PORT =  3000;
+  const schema = makeExecutableSchema({
+    typeDefs,
+    resolvers
+    // context: { pubsub }
+  })
 
-app.get('/', (_req, res) => {
-    console.log('Hello World');
-    res.send('Hello World!' );
-})
+  const wsServer = new WebSocketServer({
+    server: httpServer,
+    path: '/graphql'
+  })
 
-app.use('/api/diaries', diaryRouter); 
+  const serverCleanup = useServer({ schema }, wsServer)
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
+  const server = new ApolloServer({
+    schema,
+    csrfPrevention: true,
+    cache: 'bounded',
+    plugins: [
+      ApolloServerPluginDrainHttpServer({ httpServer }),
+      {
+        async serverWillStart () {
+          return {
+            async drainServer () {
+              await serverCleanup.dispose()
+            }
+          }
+        }
+      }
+    ]
+  })
+
+  await server.start()
+
+  server.applyMiddleware({ app, path: '/graphql', cors: true })
+  await new Promise<void>((resolve: any) =>
+    httpServer.listen({ port: config.PORT }, resolve)
+  )
+  if (config.PORT != null) {
+    logger.info(`🚀 Server running on port ${config.PORT}`)
+  }
+  return { server, app }
+}
+
+startApolloServer().catch(err => logger.error(err))
