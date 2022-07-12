@@ -6,10 +6,7 @@ import { makeExecutableSchema } from '@graphql-tools/schema'
 import { WebSocketServer } from 'ws'
 import { useServer } from 'graphql-ws/lib/use/ws'
 import { typeDefs } from './schema/typeDefs'
-import {
-  resolvers
-//   pubsub
-} from './schema/resolvers'
+import { resolvers } from './schema/resolvers'
 import config from './utils/config'
 import logger from './utils/logger'
 
@@ -19,7 +16,6 @@ const startApolloServer = async (): Promise<any> => {
   const schema = makeExecutableSchema({
     typeDefs,
     resolvers
-    // context: { pubsub }
   })
 
   const wsServer = new WebSocketServer({

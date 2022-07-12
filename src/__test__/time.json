@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "id_employee": 1,
+    "date": "2022-04-01T06:00:00.000Z",
+    "timeStart": "07:45:00",
+    "timeEnd": "14:31:00"
+  },
+  {
+    "id": 2,
+    "id_employee": 1,
+    "date": "2022-04-01T06:00:00.000Z",
+    "timeStart": "15:31:00",
+    "timeEnd": "21:30:00"
+  },
+  {
+    "id": 3,
+    "id_employee": 1,
+    "date": "2022-04-02T06:00:00.000Z",
+    "timeStart": "08:25:00",
+    "timeEnd": "12:25:00"
+  },
+  {
+    "id": 4,
+    "id_employee": 1,
+    "date": "2022-04-02T06:00:00.000Z",
+    "timeStart": "13:16:00",
+    "timeEnd": "17:25:00"
+  },
+  {
+    "id": 5,
+    "id_employee": 1,
+    "date": "2022-04-04T06:00:00.000Z",
+    "timeStart": "08:37:00",
+    "timeEnd": "13:21:00"
+  },
+  {
+    "id": 6,
+    "id_employee": 1,
+    "date": "2022-04-04T06:00:00.000Z",
+    "timeStart": "14:34:00",
+    "timeEnd": "16:41:00"
+  },
+  {
+    "id": 7,
+    "id_employee": 1,
+    "date": "2022-04-04T06:00:00.000Z",
+    "timeStart": "15:38:00",
+    "timeEnd": "18:42:00"
+  },
+  {
+    "id": 8,
+    "id_employee": 1,
+    "date": "2022-04-05T06:00:00.000Z",
+    "timeStart": "09:24:00",
+    "timeEnd": "14:01:00"
+  },
+  {
+    "id": 9,
+    "id_employee": 1,
+    "date": "2022-04-05T06:00:00.000Z",
+    "timeStart": "14:55:00",
+    "timeEnd": "19:16:00"
+  },
+  {
+    "id": 10,
+    "id_employee": 1,
+    "date": "2022-04-06T06:00:00.000Z",
+    "timeStart": "09:10:00",
+    "timeEnd": "12:19:00"
+  },
+  {
+    "id": 11,
+    "id_employee": 1,
+    "date": "2022-04-06T06:00:00.000Z",
+    "timeStart": "14:49:00",
+    "timeEnd": "17:41:00"
+  },
+  {
+    "id": 12,
+    "id_employee": 1,
+    "date": "2022-04-07T06:00:00.000Z",
+    "timeStart": "08:01:00",
+    "timeEnd": "13:49:00"
+  },
+  {
+    "id": 13,
+    "id_employee": 1,
+    "date": "2022-04-08T06:00:00.000Z",
+    "timeStart": "08:03:00",
+    "timeEnd": "12:13:00"
+  },
+  {
+    "id": 14,
+    "id_employee": 1,
+    "date": "2022-04-08T06:00:00.000Z",
+    "timeStart": "13:07:00",
+    "timeEnd": "18:00:00"
+  },
+  {
+    "id": 15,
+    "id_employee": 1,
+    "date": "2022-04-09T06:00:00.000Z",
+    "timeStart": "08:04:00",
+    "timeEnd": "12:22:00"
+  },
+  {
+    "id": 16,
+    "id_employee": 1,
+    "date": "2022-04-09T06:00:00.000Z",
+    "timeStart": "13:29:00",
+    "timeEnd": "17:22:00"
+  },
+  {
+    "id": 17,
+    "id_employee": 1,
+    "date": "2022-04-11T06:00:00.000Z",
+    "timeStart": "08:06:00",
+    "timeEnd": "12:34:00"
+  },
+  {
+    "id": 18,
+    "id_employee": 1,
+    "date": "2022-04-12T06:00:00.000Z",
+    "timeStart": "08:00:00",
+    "timeEnd": "16:21:00"
+  },
+  {
+    "id": 19,
+    "id_employee": 1,
+    "date": "2022-04-12T06:00:00.000Z",
+    "timeStart": "16:35:00",
+    "timeEnd": "18:00:00"
+  },
+  {
+    "id": 20,
+    "id_employee": 1,
+    "date": "2022-04-13T06:00:00.000Z",
+    "timeStart": "08:13:00",
+    "timeEnd": "12:23:00"
+  },
+  {
+    "id": 21,
+    "id_employee": 1,
+    "date": "2022-04-13T06:00:00.000Z",
+    "timeStart": "13:30:00",
+    "timeEnd": "17:32:00"
+  }
+]

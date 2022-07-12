@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "date": "2022-04-01T06:00:00.000Z",
+    "idPerson": 1,
+    "FirstTime": "2022-04-01T15:30:00",
+    "LastTime": "2022-04-01T19:42:00",
+    "FirstDuration": "21:45:00",
+    "SecondDuration": "24:00:00"
+  }
+]
