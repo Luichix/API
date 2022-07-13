@@ -19,14 +19,6 @@ export const parseDate = (date: string): Date => {
   return DateTime.fromISO(date).toJSDate()
 }
 
-export const timeExecute = (fn: any, name: string, params: any): string => {
-  const start = Date.now()
-  const result = fn(params)
-  const end = Date.now()
-  console.log(`Time Execute ${name}: ${end - start}ms`)
-  return result
-}
-
 export const calculateDurationTime = (data: any): any[] => {
   const result: [] = data.map((item: any) => ({ ...item, duration: calculateTime(item.timeStart, item.timeEnd) }))
   return result
@@ -49,6 +41,9 @@ export const plusTime = (time: []): string => {
   }
   , Duration.fromObject({ hours: 0, minutes: 0, seconds: 0 }))
   return result.toFormat('hh:mm:ss')
+}
 
-  // return result
+export const convertTime = (value: any): string => {
+  const result = Duration.fromISOTime(value).toFormat('ss')
+  return result
 }
