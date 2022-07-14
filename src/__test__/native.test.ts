@@ -52,8 +52,9 @@ describe('Time Operations between hours and values', () => {
 
   test('Native functions to payment of working time', () => {
     const workTime = parseTime('104:00:00')
-
-    const result = workTime
-    expect(result).toBe(374400)
+    const workedTime = nativeAddTimes(dataPlus)
+    const secondsTime = Math.abs(workTime - parseTime(workedTime))
+    const result = monthlySalary - (secondSalary * secondsTime)
+    expect(Math.round(result)).toBe(5682)
   })
 })

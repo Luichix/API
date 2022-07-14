@@ -1,6 +1,6 @@
 import { addTimes, diffTimes } from './scripts'
 
-export const nativeAddTimes = (time: []): string => {
+export const nativeAddTimes = (time: any): string => {
   const result = time.reduce((acc: any, item: any) => {
     return addTimes(acc, item.duration)
   }

@@ -19,6 +19,10 @@ export interface HourData {
   SecondDuration: Date
 }
 
+export interface DataTimePlus {
+  duration: string
+}
+
 /**
     "ID_HOUR": 1,
     "DateDay": "2022-04-01T06:00:00.000Z",

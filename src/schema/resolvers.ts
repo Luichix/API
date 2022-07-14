@@ -1,45 +1,54 @@
 import { prisma } from './prisma/client'
 import { PubSub } from 'graphql-subscriptions'
+import { GraphQLDateTime, GraphQLLocalEndTime } from 'graphql-scalars'
+import { GraphQLTime } from './scalars'
 
 export const pubsub = new PubSub()
 
 const SUBSCRIPTION_EVENTS = {
-  MESSAGE_ADDED: 'MESSAGE_ADDED'
+  HOUR_ADDED: 'HOUR_ADDED'
 }
 
 export const resolvers = {
   Query: {
-    allMessages: () =>
-      prisma.message.findMany({
+    allHours: () =>
+      prisma.hour.findMany({
         include: {
-          user: true
+          personal: true
         }
       })
   },
   Mutation: {
-    addMessage: async (_parent: any, { text, uid }: any) => {
-      const user = await prisma.user.findUnique({ where: { uid } })
+    addHour: async (_parent: any, { date, startTime, endTime, uid }: any) => {
+      const personal = await prisma.personal.findUnique({ where: { uid } })
 
-      const content = await prisma.message.create({
+      const content = await prisma.hour.create({
         data: {
-          text: text,
-          user: {
+          date: date,
+          startTime: startTime,
+          endTime: endTime,
+          hours: '00:00:00',
+          dayHours: '00:00:00',
+          personal: {
             connect: {
               uid: uid
             }
           }
         }
       })
-      const message = { ...content, user }
-      pubsub.publish(SUBSCRIPTION_EVENTS.MESSAGE_ADDED, {
-        messageAdded: message
+      const hour = { ...content, personal }
+      pubsub.publish(SUBSCRIPTION_EVENTS.HOUR_ADDED, {
+        hourAdded: hour
       }).catch(err => console.log(err))
-      return message
+      return hour
     }
   },
   Subscription: {
-    messageAdded: {
-      subscribe: () => pubsub.asyncIterator(SUBSCRIPTION_EVENTS.MESSAGE_ADDED)
+    hourAdded: {
+      subscribe: () => pubsub.asyncIterator(SUBSCRIPTION_EVENTS.HOUR_ADDED)
     }
-  }
+  },
+  Time: GraphQLTime,
+  LocalEndTime: GraphQLLocalEndTime,
+  DateTime: GraphQLDateTime
 }

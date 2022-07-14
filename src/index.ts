@@ -15,7 +15,7 @@ const startApolloServer = async (): Promise<any> => {
 
   const schema = makeExecutableSchema({
     typeDefs,
-    resolvers
+    resolvers: [resolvers]
   })
 
   const wsServer = new WebSocketServer({
