@@ -5,8 +5,36 @@ scalar Time
 scalar DateTime
 scalar LocalEndTime
 
+type Period {
+    id: ID
+    type: String
+    startDate: DateTime
+    endDate: DateTime
+    period: String
+}
+
+type Payroll {
+    id: ID
+    period: Period
+    collection: Collection
+}
+
+
+type Collection {
+    cid: ID
+    workHours: String
+    workedHours: String
+    ordinarys: String
+    overtimes: String
+    missingTime: String
+    auxiliayTime: String
+    status: Boolean
+    period: Period
+    personal: Personal
+}
+
   type Personal {
-    uid: ID!
+    pid: ID!
     name: String
     surname: String
     identityCard: String
@@ -15,26 +43,25 @@ scalar LocalEndTime
     address: String
     workArea: String
     job: String
-  }
-  type Hour {
-    id: Int
-    startTime: LocalEndTime
-    endTime: LocalEndTime
-    hours: Time
-    day: Day
-    personal: Personal!
+    days: [Day]
   }
 
   type Day {
-    id: Int
+    did: ID!
     date: DateTime
     dayHours: Time
     hours: [Hour]
-    personal: Personal!
+  }
+
+  type Hour {
+    hid: ID!
+    startTime: LocalEndTime
+    endTime: LocalEndTime
+    hours: Time
   }
 
   type Query {
-    allHours: [Hour]!
+    allPersonal: [Personal]!
   }
   type Mutation {
     addHour( date: DateTime!, startTime: String!, endTime: String!,uid: ID!): Hour

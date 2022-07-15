@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Personal {
-  uid          String  @id @unique
+  pid          String       @id @unique @default(cuid())
   name         String
   surname      String
   identityCard String
@@ -21,26 +21,59 @@ model Personal {
   workArea     String
   job          String
   salary       Decimal
-  hours        Hour[]
   days         Day[]
-}
-
-model Hour {
-  id         Int      @id @default(autoincrement())
-  startTime  String
-  endTime    String
-  hours      String
-  day        Day      @relation(fields: [idDay], references: [id])
-  personal   Personal @relation(fields: [personalId], references: [uid])
-  idDay      Int
-  personalId String
+  Collection   Collection[]
 }
 
 model Day {
-  id         Int      @id @default(autoincrement())
+  did        String   @id @default(cuid())
   date       DateTime
   dayHours   String
   hours      Hour[]
-  personal   Personal @relation(fields: [personalId], references: [uid])
+  personal   Personal @relation(fields: [personalId], references: [pid])
   personalId String
+}
+
+model Hour {
+  hid       String @id @default(cuid())
+  startTime String
+  endTime   String
+  hours     String
+  day       Day    @relation(fields: [idDay], references: [did])
+  idDay     String
+}
+
+model Payroll {
+  id        String       @id @default(cuid())
+  date       DateTime
+  period     Period       @relation(fields: [periodId], references: [id])
+  periodId   String
+  Collection Collection[]
+}
+
+model Collection {
+  cid          String   @id @default(cuid())
+  workHours    String
+  workedHours  String
+  ordinarys    String
+  overtimes    String
+  missingTime  String
+  auxiliayTime String
+  status       Boolean
+  personal     Personal @relation(fields: [personalId], references: [pid])
+  personalId   String
+  period       Period   @relation(fields: [periodId], references: [id])
+  periodId     String
+  payroll      Payroll  @relation(fields: [payrollId], references: [id])
+  payrollId    String
+}
+
+model Period {
+  id         String       @id @unique @default(cuid())
+  type       String
+  startDate  DateTime
+  endDate    DateTime
+  period     String
+  Collection Collection[]
+  Payroll    Payroll[]
 }

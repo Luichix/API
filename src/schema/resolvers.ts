@@ -12,10 +12,14 @@ const SUBSCRIPTION_EVENTS = {
 
 export const resolvers = {
   Query: {
-    allHours: () =>
-      prisma.hour.findMany({
+    allPersonal: () =>
+      prisma.personal.findMany({
         include: {
-          personal: true
+          days: {
+            include: {
+              hours: true
+            }
+          }
         }
       })
   },
