@@ -22,15 +22,25 @@ model Personal {
   job          String
   salary       Decimal
   hours        Hour[]
+  days         Day[]
 }
 
 model Hour {
   id         Int      @id @default(autoincrement())
-  date       DateTime
   startTime  String
   endTime    String
   hours      String
+  day        Day      @relation(fields: [idDay], references: [id])
+  personal   Personal @relation(fields: [personalId], references: [uid])
+  idDay      Int
+  personalId String
+}
+
+model Day {
+  id         Int      @id @default(autoincrement())
+  date       DateTime
   dayHours   String
+  hours      Hour[]
   personal   Personal @relation(fields: [personalId], references: [uid])
   personalId String
 }

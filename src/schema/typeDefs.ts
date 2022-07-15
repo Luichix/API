@@ -17,17 +17,28 @@ scalar LocalEndTime
     job: String
   }
   type Hour {
-    id: ID!
-    date: DateTime!
+    id: Int
     startTime: LocalEndTime
-    endTime: Time
+    endTime: LocalEndTime
+    hours: Time
+    day: Day
     personal: Personal!
   }
+
+  type Day {
+    id: Int
+    date: DateTime
+    dayHours: Time
+    hours: [Hour]
+    personal: Personal!
+  }
+
   type Query {
     allHours: [Hour]!
   }
   type Mutation {
     addHour( date: DateTime!, startTime: String!, endTime: String!,uid: ID!): Hour
+    updateHour( id: Int, date: DateTime!, startTime: String!, endTime: String!, uid: ID!): Hour
   }
   type Subscription {
     hourAdded: Hour!

@@ -61,12 +61,3 @@ export default function diffTimes (start: string, end: string): string {
 
   return `${hours < 10 && hours >= 0 ? `0${hours}` : hours.toString()}:${minutes < 10 ? `0${minutes}` : minutes.toString()}:${seconds < 10 ? `0${seconds}` : seconds.toString()}`
 }
-
-console.log(diffTimes('10:00:00', '15:30:00'))
-// '05:30:00'
-console.log(diffTimes('10:30:30', '06:50:00'))
-// '00:00:00'
-console.log(diffTimes('04:20:10', '21:15:20'))
-// '16:55:00'
-console.log(diffTimes('04:35:10', '21:35:30'))
-// '17:00:20'
