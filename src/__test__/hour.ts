@@ -20,17 +20,22 @@ export const parseDate = (date: string): Date => {
 }
 
 export const calculateDurationTime = (data: any): any[] => {
-  const result: [] = data.map((item: any) => ({ ...item, duration: calculateTime(item.timeStart, item.timeEnd) }))
+  const result: [] = data.map((item: any) => ({
+    ...item,
+    duration: calculateTime(item.startTime, item.endTime)
+  }))
   return result
 }
 
 export const calculateTime = (first: any, second: any): string => {
-  return Duration.fromISOTime(second).minus(Duration.fromISOTime(first)).toFormat('hh:mm:ss')
+  return Duration.fromISOTime(second)
+    .minus(Duration.fromISOTime(first))
+    .toFormat('hh:mm:ss')
 }
 
 export const iterateDateArray = (data: any): any[] => {
-  const result: [] = data.map((item: any) =>
-    data.filter((time: any) => time.date === item.date).length
+  const result: [] = data.map(
+    (item: any) => data.filter((time: any) => time.date === item.date).length
   )
   return result
 }
@@ -38,8 +43,7 @@ export const iterateDateArray = (data: any): any[] => {
 export const plusTime = (time: []): string => {
   const result = time.reduce((acc: any, item: any) => {
     return acc.plus(Duration.fromISOTime(item.duration))
-  }
-  , Duration.fromObject({ hours: 0, minutes: 0, seconds: 0 }))
+  }, Duration.fromObject({ hours: 0, minutes: 0, seconds: 0 }))
   return result.toFormat('hh:mm:ss')
 }
 

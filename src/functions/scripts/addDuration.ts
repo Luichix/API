@@ -16,7 +16,7 @@
  * @returns {String}
  */
 
-export default function addTimes (start: string, end: string): string {
+export default function addDuration(start: string, end: string): string {
   const times: number[] = []
   const times1: string[] = start.split(':')
   const times2: string[] = end.split(':')
@@ -25,8 +25,8 @@ export default function addTimes (start: string, end: string): string {
   const endTime: number[] = []
 
   for (let i = 0; i < 3; i++) {
-    startTime[i] = (isNaN(parseInt(times1[i]))) ? 0 : parseInt(times1[i])
-    endTime[i] = (isNaN(parseInt(times2[i]))) ? 0 : parseInt(times2[i])
+    startTime[i] = isNaN(parseInt(times1[i])) ? 0 : parseInt(times1[i])
+    endTime[i] = isNaN(parseInt(times2[i])) ? 0 : parseInt(times2[i])
     times[i] = startTime[i] + endTime[i]
   }
 
@@ -46,5 +46,7 @@ export default function addTimes (start: string, end: string): string {
     minutes -= 60 * res
   }
 
-  return `${hours < 10 ? `0${hours}` : hours.toString()}:${minutes < 10 ? `0${minutes}` : minutes.toString()}:${seconds < 10 ? `0${seconds}` : seconds.toString()}`
+  return `${hours < 10 ? `0${hours}` : hours.toString()}:${
+    minutes < 10 ? `0${minutes}` : minutes.toString()
+  }:${seconds < 10 ? `0${seconds}` : seconds.toString()}`
 }

@@ -1,3 +1,3 @@
-export { default as object } from './object.json'
-export { default as plus } from './plus.json'
-export { default as time } from './time.json'
+export { default as times } from './times.json'
+export { default as durations } from './durations.json'
+export { default as hours } from './hours.json'

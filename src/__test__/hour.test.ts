@@ -1,41 +1,57 @@
-import { timeMath, durationMath, parseDate, calculateDurationTime, iterateDateArray, plusTime, convertTime } from './hour'
-import { object as dataObject, plus as dataPlus, time as dataTime } from './data'
-import { timeExecute } from './scripts'
+import {
+  timeMath,
+  durationMath,
+  parseDate,
+  calculateDurationTime,
+  iterateDateArray,
+  plusTime,
+  convertTime
+} from './hour'
+import { times, durations, hours } from './data'
+import timeExecute from '../functions/helpers/timeExecute'
 
 describe('Time operations with format date and hour', () => {
   test('Parsea una fecha en formato ISO a una fecha en formato Date', () => {
-    const result = timeExecute(parseDate, 'parseDate', '2022-04-01T06:00:00.000Z')
+    const result = timeExecute(
+      parseDate,
+      'parseDate',
+      '2022-04-01T06:00:00.000Z'
+    )
     expect(result).toEqual(new Date('2022-04-01T06:00:00.000Z'))
     // Time Execute parseDate: 15ms *
   })
 
   test('Calculate diference between two dates', () => {
-    const result = timeExecute(timeMath, 'timeMath', dataObject)
+    const result = timeExecute(timeMath, 'timeMath', times)
     expect(result).toBe('04:12:00')
     // Time Execute "timeMath": 18ms *
   })
 
   test('Calculate diference between two hours', () => {
-    const result = timeExecute(durationMath, 'durationMath', dataObject)
+    const result = timeExecute(durationMath, 'durationMath', times)
     expect(result).toBe('02:15:00')
     // Time Execute "durationMath": 1ms ***
   })
 
   test('Calculate diference in to array hours', () => {
-    const result = timeExecute(calculateDurationTime, 'calculateDurationTime', dataTime)
+    const result = timeExecute(
+      calculateDurationTime,
+      'calculateDurationTime',
+      hours
+    )
     expect(result).toHaveLength(21)
     // Time Execute calculateDurationTime: 22ms ***
   })
 
   test('Iterate array of dates', () => {
-    const result = timeExecute(iterateDateArray, 'iterateDateArray', dataTime)
+    const result = timeExecute(iterateDateArray, 'iterateDateArray', hours)
     expect(result).not.toContain('1')
 
     // Time Execute iterateDateArray: 0ms *
   })
 
   test('Plus array time', () => {
-    const result = timeExecute(plusTime, 'plusTime', dataPlus)
+    const result = timeExecute(plusTime, 'plusTime', durations)
     expect(result).toBe('91:16:00')
 
     // Time Execute plusTime: 17ms ***
@@ -69,6 +85,6 @@ describe('Time Operations between hours and values', () => {
     // const workedTime = convertTime('96:00:00')
 
     const result = workTime
-    expect(result).toBe(200)
+    expect(result).toBe('356400')
   })
 })

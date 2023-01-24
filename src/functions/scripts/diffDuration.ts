@@ -20,7 +20,7 @@
  * @returns {String}
  */
 
-export default function diffTimes (start: string, end: string): string {
+export default function diffDuration(start: string, end: string): string {
   const times: number[] = []
   const times1: string[] = start.split(':')
   const times2: string[] = end.split(':')
@@ -29,8 +29,8 @@ export default function diffTimes (start: string, end: string): string {
   const endTime: number[] = []
 
   for (let i = 0; i < 3; i++) {
-    startTime[i] = (isNaN(parseInt(times1[i]))) ? 0 : parseInt(times1[i])
-    endTime[i] = (isNaN(parseInt(times2[i]))) ? 0 : parseInt(times2[i])
+    startTime[i] = isNaN(parseInt(times1[i])) ? 0 : parseInt(times1[i])
+    endTime[i] = isNaN(parseInt(times2[i])) ? 0 : parseInt(times2[i])
     times[i] = endTime[i] - startTime[i]
   }
 
@@ -59,5 +59,7 @@ export default function diffTimes (start: string, end: string): string {
   }
   if (hours < 0) return '00:00:00'
 
-  return `${hours < 10 && hours >= 0 ? `0${hours}` : hours.toString()}:${minutes < 10 ? `0${minutes}` : minutes.toString()}:${seconds < 10 ? `0${seconds}` : seconds.toString()}`
+  return `${hours < 10 && hours >= 0 ? `0${hours}` : hours.toString()}:${
+    minutes < 10 ? `0${minutes}` : minutes.toString()
+  }:${seconds < 10 ? `0${seconds}` : seconds.toString()}`
 }
