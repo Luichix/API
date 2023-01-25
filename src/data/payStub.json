@@ -1,0 +1,31 @@
+[
+  {
+    "stubID": "1",
+    "personalInformation": {
+      "personalId": "1",
+      "fullName": "Pérez Chávez Luis Reynaldo",
+      "identityCard": "081-240995-0008M",
+      "job": "Programador"
+    },
+    "paymentInformation": {
+      "paymentPeriod": "",
+      "salaryMonthly": 35000,
+      "SalaryBiweekly": 17750
+    },
+    "workDetail": {
+      "baseSalary": 17750,
+      "absenceTime": "00:00:00",
+      "absenceMount": 350,
+      "ordinaryIncome": 17400
+    },
+    "detailIncome": {
+      "ordynaryIncome": 17400,
+      "grossIncome": 17400
+    },
+    "deductionDetail": {
+      "socialSecurity": 500,
+      "netDeducctions": 500
+    },
+    "netIncome": 16900
+  }
+]

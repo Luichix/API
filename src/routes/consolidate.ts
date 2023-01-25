@@ -1,8 +1,8 @@
 import express from 'express'
 import dataHours from '../data/hours.json'
 import { ConsolidateRecord, TimeRecord } from '../interfaces/types'
-import { consolidateHours } from './helpers/consolidateHours'
-import { recordHours } from '../constants/recordHours'
+import { consolidateHours } from './helpers'
+import { recordHours } from '../constants'
 // import { consolidateHours } from './helpers/consolidateHours'
 
 const routerConsolidate = express.Router()

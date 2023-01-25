@@ -5,6 +5,7 @@ import routerHours from './routes/hours'
 import routerPayroll from './routes/payroll'
 // const config = require('./utils/config')
 // require('express-async-error')
+
 const app = express()
 
 // const cors = require('cors')

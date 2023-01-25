@@ -23,6 +23,20 @@ export interface ConsolidateRecord {
 }
 
 export interface Payroll {
-  personalID: string
-  income: number
+  personalInformation: PersonalInformationForPayment
+  netIncome: number
+}
+
+export interface PersonalInformation {
+  personalId: string
+  name: string
+  surname: string
+  identityCard: string
+  typeCard: string
+  job: string
+}
+
+export interface PersonalInformationForPayment
+  extends Pick<PersonalInformation, 'personalId' | 'identityCard' | 'job'> {
+  fullName: string
 }
