@@ -8,7 +8,7 @@ export default function createPeriod(
   workingDay: WorkingDay,
   startPeriod: string,
   endPeriod: string
-): PeriodKind[] {
+): PeriodKind {
   const startDate = new Date(startPeriod)
   const endDate = new Date(endPeriod)
 
@@ -36,10 +36,8 @@ export default function createPeriod(
       return periodDay
     })
 
-  return [
-    {
-      workingDay: workingDay.name,
-      period: newPeriod
-    }
-  ]
+  return {
+    workingDay: workingDay.name,
+    period: newPeriod
+  }
 }

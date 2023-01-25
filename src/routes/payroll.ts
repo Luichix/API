@@ -6,6 +6,8 @@ import { convertBaseSalary, calculateTimePeriod, createPeriod } from './helpers'
 import { recordHours, period } from '../constants'
 import dataEmployees from '../data/employees.json'
 import dataWorkingDay from '../data/workingDay.json'
+import { PeriodKind } from '../interfaces/period'
+import diffDuration from '../functions/scripts/diffDuration'
 
 const routerPayroll = express.Router()
 
@@ -22,6 +24,7 @@ routerPayroll.get('/', (_, res) => {
       let baseSalary = 0
       let indexSchedule = 0
       let getWorkTime = '00:00:00'
+      let workTime = 0
 
       const index = dataEmployees.findIndex(
         (employee) => record.personalID === employee.personalID
@@ -45,15 +48,23 @@ routerPayroll.get('/', (_, res) => {
 
       if (indexPeriod >= 0) {
         getWorkTime = calculateTimePeriod(period[indexPeriod].period)
-      } else {
-        // get the working days in the period
-        period.push(
-          ...createPeriod(dataWorkingDay[indexSchedule], startDate, endDate)
+      } else if (indexPeriod < 0) {
+        // create new period
+        const newPeriod: PeriodKind = createPeriod(
+          dataWorkingDay[indexSchedule],
+          startDate,
+          endDate
         )
+
+        // get work time in the period
+        getWorkTime = calculateTimePeriod(newPeriod.period)
+
+        // update periods
+        period.push(newPeriod)
       }
 
       // parse time into seconds time
-      const workTime = parseTime(getWorkTime)
+      workTime = parseTime(getWorkTime)
 
       // convert salary base to revenue time per seconds
       const { secondSalary } = convertBaseSalary(baseSalary)
@@ -63,6 +74,17 @@ routerPayroll.get('/', (_, res) => {
 
       // get the absolute value of the work time minus the time worked
       const secondsTime = Math.abs(workTime - workedTime)
+
+      // get missing time
+      const missingTime = diffDuration(record.period, getWorkTime)
+      const missingValue = parseTime(missingTime) * secondSalary
+      const ordinaryIncome = baseSalary - missingValue
+
+      console.log(
+        { missingTime: missingTime },
+        { getWorkTime: getWorkTime },
+        { record: record.period }
+      )
 
       // calculate income with the base salary minus value to missing time
       const income =
@@ -79,6 +101,25 @@ routerPayroll.get('/', (_, res) => {
           identityCard: dataEmployees[index].identityCard,
           job: dataEmployees[index].job
         },
+        paymentInformation: {
+          paymentPeriod: getWorkTime,
+          baseSalary: dataEmployees[index].salary
+        },
+        workDetail: {
+          baseSalary: dataEmployees[index].salary,
+          absenceTime: missingTime,
+          absenceMount: missingValue,
+          ordinaryIncome: ordinaryIncome
+        },
+        detailIncome: {
+          ordynaryIncome: ordinaryIncome,
+          grossIncome: ordinaryIncome
+        },
+        deductionDetail: {
+          socialSecurity: 0,
+          netDeducctions: 0
+        },
+
         netIncome: income
       }
 

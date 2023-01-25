@@ -73,7 +73,7 @@
     "job": "Gerente de Finanzas",
     "salary": 55000,
     "regiment": "Administrativo",
-    "workingDay": "Regular",
+    "workingDay": "Admin",
     "timeControl": false,
     "contract": "Permanente",
     "startContract": "2023-01-01T18:45:30.949Z",

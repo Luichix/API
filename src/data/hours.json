@@ -3,7 +3,6 @@
     "hoursID": "1",
     "date": "2023-01-01T06:00:00.000Z",
     "personalID": "1",
-    "fullName": "Perez Chavez Luis Reynaldo",
     "totalHours": "10:00:00",
     "hours": [
       {
@@ -17,7 +16,6 @@
     "hoursID": "2",
     "date": "2023-01-01T06:00:00.000Z",
     "personalID": "2",
-    "fullName": "Perez Chavez Reynaldo Enmanuel",
     "totalHours": "10:00:00",
     "hours": [
       {
@@ -31,7 +29,6 @@
     "hoursID": "3",
     "date": "2023-01-01T06:00:00.000Z",
     "personalID": "3",
-    "fullName": "Perez Chavez Regina Aracellys",
     "totalHours": "10:00:00",
     "hours": [
       {
@@ -45,7 +42,6 @@
     "hoursID": "4",
     "date": "2023-01-01T06:00:00.000Z",
     "personalID": "4",
-    "fullName": "Perez Chavez Luisamalia de los Angeles",
     "totalHours": "10:00:00",
     "hours": [
       {
@@ -59,7 +55,6 @@
     "hoursID": "5",
     "date": "2023-01-02T06:00:00.000Z",
     "personalID": "1",
-    "fullName": "Perez Chavez Luis Reynaldo",
     "totalHours": "10:00:00",
     "hours": [
       {
@@ -73,7 +68,6 @@
     "hoursID": "6",
     "date": "2023-01-02T06:00:00.000Z",
     "personalID": "2",
-    "fullName": "Perez Chavez Reynaldo Enmanuel",
     "totalHours": "10:00:00",
     "hours": [
       {
@@ -87,7 +81,6 @@
     "hoursID": "7",
     "date": "2023-01-02T06:00:00.000Z",
     "personalID": "3",
-    "fullName": "Perez Chavez Regina Aracellys",
     "totalHours": "10:00:00",
     "hours": [
       {
@@ -101,7 +94,6 @@
     "hoursID": "8",
     "date": "2023-01-02T06:00:00.000Z",
     "personalID": "4",
-    "fullName": "Perez Chavez Luisamalia de los Angeles",
     "totalHours": "10:00:00",
     "hours": [
       {
