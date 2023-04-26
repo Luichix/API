@@ -1,0 +1,269 @@
+[
+    {
+        "id": "1",
+        "name": "Regular",
+        "description": "Regular working hours: Monday - Saturday 8am to 5pm",
+        "weeklyHours": "48:00:00",
+        "weeklyShift": [
+            {
+                "weekday": 0,
+                "hours": "00:00:00",
+                "entryTime": "00:00:00",
+                "departureTime": "00:00:00",
+                "restTime": "00:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "00:00:00",
+                        "departureTime": "00:00:00",
+                        "time": "00:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 1,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 2,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 3,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 4,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 5,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 6,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Admin",
+        "description": "Admin working hours: Monday - Saturday 8am to 5pm",
+        "weeklyHours": "45:00:00",
+        "weeklyShift": [
+            {
+                "weekday": 0,
+                "hours": "00:00:00",
+                "entryTime": "00:00:00",
+                "departureTime": "00:00:00",
+                "restTime": "00:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "00:00:00",
+                        "departureTime": "00:00:00",
+                        "time": "00:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 1,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 2,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 3,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 4,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 5,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "17:00:00",
+                "restTime": "01:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "12:00:00",
+                        "time": "04:00:00"
+                    },
+                    {
+                        "entryTime": "13:00:00",
+                        "departureTime": "17:00:00",
+                        "time": "04:00:00"
+                    }
+                ]
+            },
+            {
+                "weekday": 6,
+                "hours": "08:00:00",
+                "entryTime": "08:00:00",
+                "departureTime": "13:00:00",
+                "restTime": "00:00:00",
+                "workingHours": [
+                    {
+                        "entryTime": "08:00:00",
+                        "departureTime": "13:00:00",
+                        "time": "05:00:00"
+                    }
+                ]
+            }
+        ]
+    }
+]
